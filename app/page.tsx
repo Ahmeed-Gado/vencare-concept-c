@@ -26,6 +26,7 @@ const PARTNERS = [
     products: ["UVA PIT ECP System", "UVA PIT KIT for ECP Treatment"],
     desc: "Medical technology partner for UVA PIT ECP solutions supporting extracorporeal photopheresis therapy.",
     url: "https://pitsystem.eu/",
+    images: [{ src: "/uva-pit-ecp-system.jpg", alt: "UVA PIT ECP System" }],
   },
   {
     num: "II",
@@ -33,6 +34,10 @@ const PARTNERS = [
     products: ["HyaRegen®", "MateRegen®"],
     desc: "Functional healing material and adhesion barrier for OB/GYN applications.",
     url: "https://en.bioregenmed.com/",
+    images: [
+      { src: "/hyaregen-gel.png", alt: "HyaRegen® Gel 10ml with Cannula" },
+      { src: "/materegen-gel.png", alt: "MateRegen® Gel 5ml with Cannula" },
+    ],
   },
   {
     num: "III",
@@ -40,6 +45,7 @@ const PARTNERS = [
     products: ["Disposable Hysteroscope"],
     desc: "Provider of affordable disposable hysteroscope technology for modern clinical use.",
     url: "https://www.acuvuinc.com/about",
+    images: [{ src: "/acuvu-hysteroscope.png", alt: "AcuVu Disposable Hysteroscope" }],
   },
 ];
 
@@ -294,11 +300,11 @@ export default function ConceptC() {
           <div className="divide-y divide-[#5C1A2E]/10">
             {PARTNERS.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
-                <div className="group py-12 lg:py-16 grid lg:grid-cols-12 gap-8 items-start hover:bg-[#F2EEE8]/50 -mx-6 px-6 transition-colors duration-300">
+                <div className="group py-12 lg:py-16 grid lg:grid-cols-12 gap-8 items-center hover:bg-[#F2EEE8]/50 -mx-6 px-6 transition-colors duration-300">
                   <div className="lg:col-span-1">
                     <p className="font-cormorant text-4xl font-light text-[#5C1A2E]/30 group-hover:text-[#5C1A2E]/60 transition-colors">{p.num}</p>
                   </div>
-                  <div className="lg:col-span-5">
+                  <div className="lg:col-span-3">
                     <h3 className="font-cormorant text-2xl lg:text-3xl font-medium text-[#1C1410] mb-4">{p.name}</h3>
                     <div className="flex flex-wrap gap-2">
                       {p.products.map((prod) => (
@@ -308,7 +314,20 @@ export default function ConceptC() {
                       ))}
                     </div>
                   </div>
-                  <div className="lg:col-span-5">
+                  {/* Product images */}
+                  <div className={`lg:col-span-4 flex gap-3 ${p.images.length > 1 ? "" : "justify-center"}`}>
+                    {p.images.map((img) => (
+                      <div key={img.src} className="relative flex-1 aspect-[4/3] bg-[#F2EEE8] overflow-hidden">
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          fill
+                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="lg:col-span-4">
                     <p className="font-raleway text-sm text-[#8C7B6E] leading-relaxed mb-5">{p.desc}</p>
                     <a href={p.url} target="_blank" rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 font-raleway text-xs font-semibold text-[#5C1A2E] tracking-wider uppercase hover:gap-3 transition-all group-hover:text-[#C8102E]">
