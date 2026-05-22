@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #FAF8F5;
+  --cream2: #F2EEE8;
+  --burgundy: #5C1A2E;
+  --red: #C8102E;
+  --orange: #E87722;
+  --warmblack: #1C1410;
+  --warmgray: #8C7B6E;
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--warmblack);
+  font-family: var(--font-raleway), sans-serif;
+}
+
+.font-cormorant { font-family: var(--font-cormorant), serif; }
+.font-raleway { font-family: var(--font-raleway), sans-serif; }
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(60px); clip-path: inset(100% 0 0 0); }
+  to   { opacity: 1; transform: translateY(0); clip-path: inset(0% 0 0 0); }
+}
+
+@keyframes line-expand {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes slow-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes counter-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.noise-bg {
+  position: relative;
+}
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.oversized-letter {
+  font-family: var(--font-cormorant), serif;
+  font-size: clamp(120px, 20vw, 280px);
+  font-weight: 300;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: rgba(92, 26, 46, 0.06);
+  user-select: none;
+  pointer-events: none;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-raleway), sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--red);
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 4px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--burgundy);
+  box-shadow: 0 0 0 2px rgba(92, 26, 46, 0.12);
+}
