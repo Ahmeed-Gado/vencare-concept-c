@@ -22,14 +22,6 @@ const TIMELINE = [
 const PARTNERS = [
   {
     num: "I",
-    name: "PIT Medical Systems GmbH",
-    products: ["UVA PIT ECP System", "UVA PIT KIT for ECP Treatment"],
-    desc: "Medical technology partner for UVA PIT ECP solutions supporting extracorporeal photopheresis therapy.",
-    url: "https://pitsystem.eu/",
-    images: [{ src: "/uva-pit-ecp-system.jpg", alt: "UVA PIT ECP System" }],
-  },
-  {
-    num: "II",
     name: "BioRegen Biomedical",
     products: ["HyaRegen®", "MateRegen®"],
     desc: "Functional healing material and adhesion barrier for OB/GYN applications.",
@@ -40,7 +32,7 @@ const PARTNERS = [
     ],
   },
   {
-    num: "III",
+    num: "II",
     name: "AcuVu Inc.",
     products: ["Disposable Hysteroscope"],
     desc: "Provider of affordable disposable hysteroscope technology for modern clinical use.",
